@@ -2,42 +2,41 @@ import {Component} from 'react'
 import './index.css'
 
 class ShowHide extends Component {
-  state = {isFirstNameHide: false, isLastNameHide: false}
+  state = {isShowFirstName: false, isShowLastName: false}
 
-  firstName = () => {
-    this.setState(prevState => ({isFirstNameHide: !prevState.isFirstNameHide}))
+  showFirstName = () => {
+    this.setState(prevState => ({isShowFirstName: !prevState.isShowFirstName}))
   }
 
-  lastName = () => {
-    this.setState(prevState => ({isLastNameHide: !prevState.isLastNameHide}))
+  showLastName = () => {
+    this.setState(prevState => ({isShowLastName: !prevState.isShowLastName}))
   }
 
   render() {
-    const {isFirstNameHide, isLastNameHide} = this.state
+    const {isShowFirstName, isShowLastName} = this.state
     return (
-      <div className="bg-container ">
+      <div className="bg-container">
         <h1 className="heading">Show/Hide</h1>
-        <div className="container">
-          <div className="first-container">
-            <button type="button" className="button" onClick={this.firstName}>
+        <div className="details-container">
+          <div className="firstname-container">
+            <button
+              type="button"
+              className="button"
+              onClick={this.showFirstName}
+            >
               Show/Hide Firstname
             </button>
-            {isFirstNameHide ? (
-              <div className="firstname-container">
-                <p className="card-heading">Joe</p>
-              </div>
-            ) : null}
+            {isShowFirstName ? <p className="para">Joe</p> : null}
           </div>
-
-          <div className="first-container">
-            <button type="button" className="button" onClick={this.lastName}>
+          <div className="lastname-container">
+            <button
+              type="button"
+              className="button"
+              onClick={this.showLastName}
+            >
               Show/Hide Lastname
             </button>
-            {isLastNameHide ? (
-              <div className="firstname-container">
-                <p className="card-heading">Jonas</p>
-              </div>
-            ) : null}
+            {isShowLastName ? <p className="para">Jonas</p> : null}
           </div>
         </div>
       </div>
